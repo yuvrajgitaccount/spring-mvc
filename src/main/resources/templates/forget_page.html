@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+ <div id="login">
+                  <div  th:if="${session.message}"  th:classappend="${session.message.type}"class="alert" role="alert">
+  <p class="text-center" th:text="${session.message.content}"></p>
+  
+  <!--once it print then remove -->
+  
+  <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+</div>
+        <h3 class="text-center text-white pt-5">ForgetPassword</h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form"  th:action="@{/sendotp}" action="#" method="post">
+                            <h3 class="text-center text-info">Forget Password</h3>
+                            
+                            
+                           
+                            
+                            <div class="form-group">
+                                <label for="username" class="text-info">Email:</label><br>
+                                <input type="email"  name="email"class="form-control">
+                            </div>
+        
+        
+                            
+                            
+                            <div class="form-group text-center">
+                      
+                                <input type="submit" name="submit" class="btn btn-danger btn-md" value="send OTP">
+                            </div>
+                            <div id="register-link" class="text-right">
+                                <a href="/home" class="text-info">Home page</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+</section>
+
+</body>
+</html>
